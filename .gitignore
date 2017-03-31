@@ -1,12 +1,39 @@
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+import java.io.*;
+public class Library
+{
+    int acc_num, daysLate, fine;
+    String title;
+    String author;
+    public void input()throws IOException
+    {
+        InputStreamReader isr= new InputStreamReader(System.in);
+        BufferedReader br= new BufferedReader(isr);
+        System.out.print("Enter accession number: ");
+        acc_num=Integer.parseInt(br.readLine());
+        System.out.print("Enter title: ");
+        title= br.readLine();
+        System.out.println("Enter author: ");
+        author= br.readLine();
+    }
+    public void compute()throws IOException
+    {
+        InputStreamReader isr= new InputStreamReader(System.in);
+        BufferedReader br= new BufferedReader(isr);
+        System.out.println("Enter number of days late: ");
+        daysLate= Integer.parseInt(br.readLine());
+        fine= 2*daysLate;
+        System.out.println("Fine is Rs "+fine);
+    }
+    public void display()
+    {
+        System.out.println("Accession Number\tTitle\tAuthor");
+        System.out.println(acc_num+"\t"+title+"\t"+author);
+    }
+    public static void main(String args[])throws IOException
+    {
+        Library library= new Library();
+        library.input();
+        library.compute();
+        library.display();
+    }
+}
